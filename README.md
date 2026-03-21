@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://hyvos07.github.io/EatOwi"><img src="https://github.com/hyvos07/EatOwi/blob/main/static/image/ClickAfter.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://hyvos07.github.io/EatOwi"><img src="https://github.com/hyvos07/EatOwi/blob/main/static/image/ClickAfter.png?raw=true" width="125" height="125" alt="EatKano"></a>
 </p>
 
 <div align="center">
 
 # EatOwi
 
-_a Simple Web "Game"_
+_A Simple Web "Game" ✊_
 
 </div>
 
