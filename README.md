@@ -6,7 +6,7 @@
 
 # EatOwi
 
-_A Simple Web "Game" ✊_
+_A Simple H5 Game ✊_
 
 </div>
 
@@ -20,6 +20,8 @@ EatOwi is a web game forked from [EatKano](https://github.com/arcxingye/EatKano)
 ## How to Make?
 
 Fork the original [EatKano](https://github.com/arcxingye/EatKano) repo and do what the README file stated.
+
+The rest is up to you!
 
 <br>
 <br>

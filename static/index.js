@@ -65,6 +65,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.init = function() {
         showWelcomeLayer();
         body = document.getElementById('gameBody') || document.body;
+        mountDesktopBackdrop();
         body.style.height = window.innerHeight + 'px';
         transform = typeof (body.style.webkitTransform) != 'undefined' ? 'webkitTransform' : (typeof (body.style.msTransform) !=
         'undefined' ? 'msTransform' : 'transform');
@@ -405,6 +406,32 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         html += '</div>';
         html += '<div id="GameTimeLayer" class="text-center"></div>';
         return html;
+    }
+
+    function createFallingJokowiLayer() {
+        if (!isDesktop) {
+            return '';
+        }
+
+        let html = '<div id="DesktopFallingJokowi" aria-hidden="true">';
+        for (let i = 0; i < 18; i++) {
+            let x = Math.floor(Math.random() * 95);
+            let delay = (Math.random() * -14).toFixed(2);
+            let duration = (10 + Math.random() * 8).toFixed(2);
+            let size = (56 + Math.random() * 44).toFixed(0);
+            let drift = ((Math.random() * 80) - 40).toFixed(0);
+            let opacity = (0.12 + Math.random() * 0.25).toFixed(2);
+            html += `<span class="desktop-falling-jokowi" style="--x:${x}%;--delay:${delay}s;--duration:${duration}s;--size:${size}px;--drift:${drift}px;--opacity:${opacity}"></span>`;
+        }
+        html += '</div>';
+        return html;
+    }
+
+    function mountDesktopBackdrop() {
+        if (!isDesktop || document.getElementById('DesktopFallingJokowi')) {
+            return;
+        }
+        document.body.insertAdjacentHTML('afterbegin', createFallingJokowiLayer());
     }
 
     function closeWelcomeLayer() {

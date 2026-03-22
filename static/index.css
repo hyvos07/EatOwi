@@ -2,6 +2,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 .loading {
@@ -108,6 +109,8 @@ body {
 }
 
 #GameTimeLayer {
+    z-index: 3;
+    pointer-events: none;
     top: 1em;
     left: 0;
     width: 100%;
@@ -119,6 +122,8 @@ body {
 }
 
 #GameLayerBG {
+    position: relative;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;
@@ -127,10 +132,55 @@ body {
     background: #fff;
 }
 
+#DesktopFallingJokowi {
+    display: none;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.desktop-falling-jokowi {
+    position: absolute;
+    top: -20%;
+    left: var(--x, 0%);
+    width: var(--size, 72px);
+    height: calc(var(--size, 72px) * 1.25);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(./image/jokowi.png);
+    opacity: var(--opacity, 0.2);
+    animation: fall-jokowi var(--duration, 12s) linear var(--delay, 0s) infinite;
+    will-change: transform;
+}
+
 .GameLayer {
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 1;
+}
+
+@keyframes fall-jokowi {
+    0% {
+        transform: translate3d(0, -15%, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(var(--drift, 0px), 125vh, 0) rotate(360deg);
+    }
+}
+
+@media (min-width: 801px) and (pointer: fine) {
+    #DesktopFallingJokowi {
+        display: block;
+    }
+}
+
+#gameBody {
+    position: relative;
+    z-index: 1;
 }
 
 .block {
